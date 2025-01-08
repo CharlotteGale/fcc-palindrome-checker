@@ -17,12 +17,12 @@ function isPalindrome(word) {
      // compare characters
      while (left < right) {
           if (word[left] !== word[right]) {
-               return false;
+               return `${word} is not a palindrome`;
           }
           left++;
           right--;
      }
-     return true;
+     return `${word} is a palindrome`;
 }
 
 function checkForPalindrome() {
