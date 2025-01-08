@@ -3,7 +3,7 @@ const result = document.getElementById('result');
 const textInput = document.getElementById('text-input');
 
 function cleanStr(word) {
-     return word.replace(/[^a-z0-9]/gi, '').toLowerCase();
+     return word.replace(/[^a-z0-9_]/gi, '').toLowerCase();
 }
 
 function isPalindrome(word) {
@@ -17,22 +17,28 @@ function isPalindrome(word) {
      // compare characters
      while (left < right) {
           if (word[left] !== word[right]) {
-               return `${word} is not a palindrome`;
+               return false;
           }
           left++;
           right--;
      }
-     return `${word} is a palindrome`;
+     return true;
 }
 
-function checkForPalindrome(userInput) {
-     const userInput = textInput.value;
+function checkForPalindrome() {
+     const userInput = textInput.value; 
 
      if (userInput === '') {
-          result.innerText = 'Please enter some text';
+          alert("Please input a value."); 
      } else {
-          const palindromeResult = isPalindrome(userInput);
-          result.innerText = palindromeResult;
+          const cleanedInput = cleanStr(userInput); 
+          const palindromeResult = isPalindrome(cleanedInput); 
+
+          if (palindromeResult === `${cleanedInput} is a palindrome`) {
+               result.innerText = `${userInput} is a palindrome`; 
+          } else {
+               result.innerText = `${userInput} is not a palindrome`; 
+          }
      }
 }
 

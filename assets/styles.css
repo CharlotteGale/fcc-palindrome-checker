@@ -16,9 +16,13 @@ body {
     width: 600px;
 }
 
-#subtitle {
+#subtitle,
+#result {
     margin-left: 50px;
     margin-bottom: 20px;
+}
+
+#subtitle {
     font-size: medium;
 }
 
